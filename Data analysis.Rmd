@@ -1,0 +1,216 @@
+##READING THE FILE
+```{r}
+employement<- read.csv("employment-by-qualification-level.csv")
+employement<-employement[,-(14:19)]
+```
+##Getting distinct values first
+```{r}
+library(dplyr)
+asians<-filter(employement, Ethnicity=="Asian or Asian British" )
+blacks<-filter(employement, Ethnicity=="Black or Black British")
+white<-filter(employement,Ethnicity=="White")
+mixed<-filter(employement, Ethnicity=="Mixed")
+others<-filter(employement, Ethnicity=="Other")
+
+
+```
+##filtering data for asians
+```{r}
+asedu1<-filter(asians,Highest.qualification.held=="Level 4 and above")
+asedu2<-filter(asians,Highest.qualification.held=="Level 3")
+asedu3<-filter(asians,Highest.qualification.held=="Level 2")
+asedu4<-filter(asians,Highest.qualification.held=="Below Level 2")
+asedu5<-filter(asians,Highest.qualification.held=="No qualifications")
+```
+##filtering data for blacks
+```{r}
+bledu1<-filter(blacks,Highest.qualification.held=="Level 4 and above")
+bledu2<-filter(blacks,Highest.qualification.held=="Level 3")
+bledu3<-filter(blacks,Highest.qualification.held=="Level 2")
+bledu4<-filter(blacks,Highest.qualification.held=="Below Level 2")
+bledu5<-filter(blacks,Highest.qualification.held=="No qualifications")
+```
+##filtering data for whites
+```{r}
+whedu1<-filter(white,Highest.qualification.held=="Level 4 and above")
+whedu2<-filter(white,Highest.qualification.held=="Level 3")
+whedu3<-filter(white,Highest.qualification.held=="Level 2")
+whedu4<-filter(white,Highest.qualification.held=="Below Level 2")
+whedu5<-filter(white,Highest.qualification.held=="No qualifications")
+
+```
+##filtering data for mixed
+```{r}
+miedu1<-filter(mixed,Highest.qualification.held=="Level 4 and above")
+miedu2<-filter(mixed,Highest.qualification.held=="Level 3")
+miedu3<-filter(mixed,Highest.qualification.held=="Level 2")
+miedu4<-filter(mixed,Highest.qualification.held=="Below Level 2")
+miedu5<-filter(mixed,Highest.qualification.held=="No qualifications")
+
+```
+##filtering data for others
+```{r}
+othedu1<-filter(others,Highest.qualification.held=="Level 4 and above")
+othedu2<-filter(others,Highest.qualification.held=="Level 3")
+othedu3<-filter(others,Highest.qualification.held=="Level 2")
+othedu4<-filter(others,Highest.qualification.held=="Below Level 2")
+othedu5<-filter(others,Highest.qualification.held=="No qualifications")
+
+```
+##Getting data for all
+```{r}
+level4<-rbind(asedu1,bledu1,whedu1,miedu1,othedu1)
+level3<-rbind(asedu2,bledu2,whedu2,miedu2,othedu2)
+level2<-rbind(asedu3,bledu3,whedu3,miedu3,othedu3)
+level1<-rbind(asedu4,bledu4,whedu4,miedu4,othedu4)
+level0<-rbind(asedu5,bledu5,whedu5,miedu5,othedu5)
+```
+##for gender apply this code on line 90 (male)
+```{r}
+level4<-filter(level4,Gender=="Male")
+level3<-filter(level3,Gender=="Male")
+level2<-filter(level2,Gender=="Male")
+level1<-filter(level1,Gender=="Male")
+level0<-filter(level0,Gender=="Male")
+
+```
+##for gender women
+```{r}
+level4<-filter(level4,Gender=="All")
+level3<-filter(level3,Gender=="All")
+level2<-filter(level2,Gender=="All")
+level1<-filter(level1,Gender=="All")
+level0<-filter(level0,Gender=="All")
+
+```
+
+##for all
+
+
+##Year with qualification
+```{r}
+levelfour2012<-filter(level4,Time=="2012")
+levelthree2012<-filter(level3,Time=="2012")
+leveltwo2012<-filter(level2,Time=="2012")
+levelone2012<-filter(level1,Time=="2012")
+levelzero2012<-filter(level0,Time=="2012")
+
+levelfour2013<-filter(level4,Time=="2013")
+levelthree2013<-filter(level3,Time=="2013")
+leveltwo2013<-filter(level2,Time=="2013")
+levelone2013<-filter(level1,Time=="2013")
+levelzero2013<-filter(level0,Time=="2013")
+
+levelfour2014<-filter(level4,Time=="2014")
+levelthree2014<-filter(level3,Time=="2014")
+leveltwo2014<-filter(level2,Time=="2014")
+levelone2014<-filter(level1,Time=="2014")
+levelzero2014<-filter(level0,Time=="2014")
+
+levelfour2015<-filter(level4,Time=="2015")
+levelthree2015<-filter(level3,Time=="2015")
+leveltwo2015<-filter(level2,Time=="2015")
+levelone2015<-filter(level1,Time=="2015")
+levelzero2015<-filter(level0,Time=="2015")
+
+levelfour2016<-filter(level4,Time=="2016")
+levelthree2016<-filter(level3,Time=="2016")
+leveltwo2016<-filter(level2,Time=="2016")
+levelone2016<-filter(level1,Time=="2016")
+levelzero2016<-filter(level0,Time=="2016")
+
+levelfour2017<-filter(level4,Time=="2017")
+levelthree2017<-filter(level3,Time=="2017")
+leveltwo2017<-filter(level2,Time=="2017")
+levelone2017<-filter(level1,Time=="2017")
+levelzero2017<-filter(level0,Time=="2017")
+
+levelfour2018<-filter(level4,Time=="2018")
+levelthree2018<-filter(level3,Time=="2018")
+leveltwo2018<-filter(level2,Time=="2018")
+levelone2018<-filter(level1,Time=="2018")
+levelzero2018<-filter(level0,Time=="2018")
+
+levelfour2019<-filter(level4,Time=="2019")
+levelthree2019<-filter(level3,Time=="2019")
+leveltwo2019<-filter(level2,Time=="2019")
+levelone2019<-filter(level1,Time=="2019")
+levelzero2019<-filter(level0,Time=="2019")
+
+```
+##Cleaning Data
+```{r}
+levelfour2012<-levelfour2012[,-(2:12)]
+levelthree2012<-levelthree2012[,-(2:12)]
+leveltwo2012<-leveltwo2012[,-(2:12)]
+levelone2012<-levelone2012[,-(2:12)]
+levelzero2012<-levelzero2012[,-(2:12)]
+
+levelfour2013<-levelfour2013[,-(2:12)]
+levelthree2013<-levelthree2013[,-(2:12)]
+leveltwo2013<-leveltwo2013[,-(2:12)]
+levelone2013<-levelone2013[,-(2:12)]
+levelzero2013<-levelzero2013[,-(2:12)]
+
+levelfour2014<-levelfour2014[,-(2:12)]
+levelthree2014<-levelthree2014[,-(2:12)]
+leveltwo2014<-leveltwo2014[,-(2:12)]
+levelone2014<-levelone2014[,-(2:12)]
+levelzero2014<-levelzero2014[,-(2:12)]
+
+levelfour2015<-levelfour2015[,-(2:12)]
+levelthree2015<-levelthree2015[,-(2:12)]
+leveltwo2015<-leveltwo2015[,-(2:12)]
+levelone2015<-levelone2015[,-(2:12)]
+levelzero2015<-levelzero2015[,-(2:12)]
+
+levelfour2016<-levelfour2016[,-(2:12)]
+levelthree2016<-levelthree2016[,-(2:12)]
+leveltwo2016<-leveltwo2016[,-(2:12)]
+levelone2016<-levelone2016[,-(2:12)]
+levelzero2016<-levelzero2016[,-(2:12)]
+
+levelfour2017<-levelfour2017[,-(2:12)]
+levelthree2017<-levelthree2017[,-(2:12)]
+leveltwo2017<-leveltwo2017[,-(2:12)]
+levelone2017<-levelone2017[,-(2:12)]
+levelzero2017<-levelzero2017[,-(2:12)]
+
+levelfour2018<-levelfour2018[,-(2:12)]
+levelthree2018<-levelthree2018[,-(2:12)]
+leveltwo2018<-leveltwo2018[,-(2:12)]
+levelone2018<-levelone2018[,-(2:12)]
+levelzero2018<-levelzero2018[,-(2:12)]
+
+levelfour2019<-levelfour2019[,-(2:12)]
+levelthree2019<-levelthree2019[,-(2:12)]
+leveltwo2019<-leveltwo2019[,-(2:12)]
+levelone2019<-levelone2019[,-(2:12)]
+levelzero2019<-levelzero2019[,-(2:12)]
+
+```
+##Merging Data
+```{r}
+level4data<-cbind(levelfour2012,levelfour2013,levelfour2014,levelfour2015,levelfour2016,levelfour2017,levelfour2018,levelfour2019)
+level3data<-cbind(levelthree2012,levelthree2013,levelthree2014,levelthree2015,levelthree2016,levelthree2017,levelthree2018,levelthree2019)
+level2data<-cbind(leveltwo2012,leveltwo2013,leveltwo2014,leveltwo2015,leveltwo2016,leveltwo2017,leveltwo2018,leveltwo2019)
+level1data<-cbind(levelone2012,levelone2013,levelone2014,levelone2015,levelone2016,levelone2017,levelone2018,levelone2019)
+level0data<-cbind(levelzero2012,levelzero2013,levelzero2014,levelzero2015,levelzero2016,levelzero2017,levelzero2018,levelzero2019)
+
+```
+
+##Writing File
+```{r}
+write.csv(level4data,"level4.csv")
+write.csv(level3data,"level3.csv")
+write.csv(level2data,"level2.csv")
+write.csv(level1data,"level1.csv")
+write.csv(level0data,"level0.csv")
+
+```
+
+```{r}
+a<-read.csv("level4.csv")
+plot(a)
+```
+
